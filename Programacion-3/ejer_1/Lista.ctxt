@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Lista
+comment1.params=
+comment1.target=Lista()
+comment2.params=nuevo
+comment2.target=void\ insertarPorDelante(Nodo)
+comment3.params=nuevo
+comment3.target=void\ insertarPorAtras(Nodo)
+comment4.params=
+comment4.target=void\ invertir()
+comment5.params=nuevo
+comment5.target=void\ insertarEnOrden(Nodo)
+comment6.params=
+comment6.target=void\ mostrar()
+comment7.params=args
+comment7.target=void\ main(java.lang.String[])
+numComments=8
