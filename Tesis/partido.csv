@@ -22,4 +22,36 @@
 1,hernandez,null,tiro libre indirecto,pase correcto,varane,null,6,8
 1,varane,null,pase,pase correcto,kounde,di maria,8,7
 1,kounde ,di maria,pase,pase incorrecto,dembele,null,7,5
-2:05,,,,,,,,
+2,tagliafico,null,saque lateral,pase correcto,mac allister,griezmann,7,7
+2,mac allister,rabiot,pase,pase correcto,messi,upamecano,7,8
+2,messi,upamecano,pase,pase correcto,di maria,kounde,8,10
+2,di maria,kounde,centro ,centro incorrecto,rabiot,messi,10,11
+2,rabiot,messi,despeje,despeje incorrecto,de paul ,null,11,8
+2,de paul,rabiot,pase,pase correcto,messi,hernandez,8,9
+2,messi,hernandez,pase,pase correcto,de paul ,null,9,8
+2,de paul,tchouameni,pase filtrado,fuera de juego,alvarez,upamecano,8,11
+2,lloris   ,null,tiro libre indirecto,duelo aereo ganado,giroud,mac allister,11,4
+3,rabiot,mac allister,pase,pase incorrecto,otamendi,giroud,4,4
+3,otamendi,giroud,pase ,pase correcto,romero,null,4,2
+3,otamendi,giroud,pase,falta defensiva,messi,upamecano,2,8
+3,de paul,null,tiro libre indirecto,pase correcto ,otamendi,null,8,4
+3,otamendi,null,pase,pase correcto,fernandez,null,4,5
+3,fernandez,giroud,pase ,pase correcto,romero,null,5,6
+3,romero,null,pase,pase correcto,molina,hernandez,6,6
+3, molina,hernandez,pase ,robo de balon,tchouameni,messi,6,8
+3,tchouameni,messi,pase,recepcion incorrecta,rabiot,messi,8,8
+3,messi,rabiot,pase,pase correcto,romero,null,8,5
+3,romero,null,pase largo,pase correcto,di maria,kounde,5,7
+4,di maria,kounde,pase,pase correcto,tagliafico,null,7,7
+4,tagliafico,null,pase,pase correcto,mac allister,kounde,7,10
+4,mac allister,kounde,pase,pase correcto,di maria,kounde,10,10
+4,di maria,kounde ,regate,robo de balon,null,kounde,10,10
+4,tagliafico,null,saque lateral,pase correcto,mac allister,griezmann,10,7
+4,mac allister,griezmann,pase ,pase incorrecto,null,mbappe,7,8
+4,mbappe,messi,pase ,pase correcto,rabiot,null,8,8
+4,rabiot,null,pase,pase correcto,hernandez,molina,8,9
+4,hernandez,molina,pase,pase incorrecto,null,messi,9,8
+4,messi,rabiot,pase,pase correcto,de paul ,null,9,9
+4,de paul,null,pase,pase incorrecto,di maria,kounde,8,10
+4,kounde ,di maria,pase ,pase correcto,dembele,di maria,10,7
+4,dembele,di maria,pase,pase correcto,kounde,,,
