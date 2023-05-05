@@ -54,4 +54,44 @@
 4,messi,rabiot,pase,pase correcto,de paul ,null,9,9
 4,de paul,null,pase,pase incorrecto,di maria,kounde,8,10
 4,kounde ,di maria,pase ,pase correcto,dembele,di maria,10,7
-4,dembele,di maria,pase,pase correcto,kounde,,,
+4,dembele,di maria,pase,pase correcto,kounde,null,7,10
+4,kounde ,di maria,pase,pase correcto,griezmann,mac allister,10,7
+4,griezmann,mac allister,pase,pase incorrecto,tchouameni,alvarez,7,7
+4,alvarez,tchouameni,pase,pase correcto,mac allister,griezmann,8,7
+4,mac allister,griezmann,disparo,disparo al arco,null,lloris,7,11
+4,lloris   ,null,pase,pase incorrecto,null,romero,11,6
+4,romero,null,despeje,despeje correcto,mac allister,griezmann,6,8
+4,mac allister,griezmann,robo,robo de balon,rabiot,null,8,8
+4,rabiot,null,pase,pase correcto,upamecano,null,8,8
+4,upamecano,null,pase,pase correcto,hernandez,null,8,6
+5,hernandez,null,pase ,pase correcto,mbappe,molina,6,6
+5,mbappe,molina,pase,pase correcto,hernandez,null,6,9
+5,hernandez,null,pase,pase correcto,upamecano,null,9,9
+5,upamecano,null,pase,pase correcto,tchouameni,null,9,8
+5,tchouameni,alvarez,pase ,pase correcto,dembele,tagliafico,8,4
+5,dembele,tagliafico,pase,pase correcto,kounde,tagliafico,4,4
+5,kounde ,tagliafico,pase ,pase correcto,lloris,null,4,11
+5,lloris   ,null,pase,pase correcto,varane,null,11,7
+5,varane,null,pase,pase correcto,upamecano,null,7,8
+5,upamecano,messi,pase,pase correcto,hernandez,molina,8,6
+5,hernandez,molina,conduccion,conduccion completada,hernandez,null,6,8
+5,hernandez,null,pase,pase correcto,kounde,di maria,8,7
+5,kounde ,di maria,pase ,pase correcto,varane,alvarez,7,8
+5,varane,alvarez,pase,pase correcto,hernandez,messi,8,8
+5,hernandez,messi,conduccion,falta ofensiva,hernandez,messi,8,8
+5,tchouameni,null,tiro libre indirecto,pase correcto,kounde,null,8,7
+5,kounde ,null,pase,pase correcto,griezmann,null,7,8
+5,griezmann,null,pase,pase correcto,dembele,tagliafico,8,4
+6,dembele,tagliafico,pase,pase correcto,kounde,di maria,4,7
+6,kounde ,null,pase ,pase correcto,varane,null,7,8
+6,varane,null,pase,pase correcto,upamecano,null,8,8
+6,upamecano,null,pase,pase correcto,varane,null,8,8
+6,varane,null,pase,pase correcto,upamecano,null,8,8
+6,upamecano,null,pase ,pase correcto,varane,null,8,8
+6,varane,null,pase,pase correcto,upamecano,null,8,12
+6,upamecano,null,pase,pase correcto,dembele,tagliafico,12,7
+6,dembele,tagliafico,pase,pase correcto,griezmann,mac allister,7,7
+6,griezmann,mac allister,pase,pase correcto,tchouameni,alvarez,7,8
+6,tchouameni,alvarez,pase,pase correcto,rabiot,alvarez,8,6
+6,rabiot,alvarez,conduccion,falta ofensiva,rabiot,alvarez,6,9
+06:42:00,,,,,,,,
