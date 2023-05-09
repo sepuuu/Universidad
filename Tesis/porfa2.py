@@ -1,115 +1,103 @@
 import tkinter as tk
-from tkinter import messagebox, filedialog
+from tkinter import ttk
 import csv
 
-class App:
-    def __init__(self):
-        self.ventana = tk.Tk()
-        self.ventana.title("App CRUD con Tkinter y CSV")
+class SportsApp:
+    def __init__(self, master):
+        self.master = master
+        self.master.title("Sports App")
 
-        # Lista de datos
-        self.data = []
+        self.add_button = ttk.Button(self.master, text="Agregar", command=self.open_add_window)
+        self.export_button = ttk.Button(self.master, text="Exportar", command=self.export_data)
+        self.import_button = ttk.Button(self.master, text="Importar", command=self.import_data)
 
-        # Botones
-        btn_ingresar = tk.Button(self.ventana, text="Ingresar", command=self.ingresar)
-        btn_ingresar.grid(row=0, column=0, padx=5, pady=5)
+        self.tree = ttk.Treeview(self.master, columns=("minuto", "jugador_balon", "jugador_marca", "accion", "resultado", "jugador_destino", "jugador_marca_destino", "zona_accion", "zona_destino"))
+        self.tree.heading("#0", text="ID")
+        self.tree.heading("minuto", text="Minuto")
+        self.tree.heading("jugador_balon", text="Jugador con Balón")
+        self.tree.heading("jugador_marca", text="Jugador Marca")
+        self.tree.heading("accion", text="Acción")
+        self.tree.heading("resultado", text="Resultado")
+        self.tree.heading("jugador_destino", text="Jugador Destino")
+        self.tree.heading("jugador_marca_destino", text="Jugador Marca Destino")
+        self.tree.heading("zona_accion", text="Zona Acción")
+        self.tree.heading("zona_destino", text="Zona Destino")
+        self.tree.column("#0", width=50)
 
-        btn_exportar = tk.Button(self.ventana, text="Exportar CSV", command=self.exportar_csv)
-        btn_exportar.grid(row=0, column=1, padx=5, pady=5)
+        self.add_button.pack(padx=10, pady=10)
+        self.export_button.pack(padx=10, pady=10)
+        self.import_button.pack(padx=10, pady=10)
+        self.tree.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
 
-        btn_importar = tk.Button(self.ventana, text="Importar CSV", command=self.importar_csv)
-        btn_importar.grid(row=0, column=2, padx=5, pady=5)
+    def open_add_window(self):
+        add_window = tk.Toplevel(self.master)
 
-        # Vista de los datos
-        self.vista_datos = tk.LabelFrame(self.ventana, text="Datos")
-        self.vista_datos.grid(row=1, column=0, columnspan=3, padx=5, pady=5, sticky="nsew")
+        minute_label = ttk.Label(add_window, text="Minuto:")
+        minute_entry = ttk.Entry(add_window)
+        player_with_ball_button = ttk.Button(add_window, text="Jugador con Balón", command=lambda: self.open_player_window(add_window))
+        player_defender_button = ttk.Button(add_window, text="Jugador Marca", command=lambda: self.open_player_window(add_window))
+        action_label = ttk.Label(add_window, text="Acción:")
+        action_entry = ttk.Entry(add_window)
+        result_label = ttk.Label(add_window, text="Resultado:")
+        result_entry = ttk.Entry(add_window)
+        player_destination_button = ttk.Button(add_window, text="Jugador Destino", command=lambda: self.open_player_window(add_window))
+        player_defender_destination_button = ttk.Button(add_window, text="Jugador Marca Destino", command=lambda: self.open_player_window(add_window))
+        action_zone_label = ttk.Label(add_window, text="Zona Acción:")
+        action_zone_entry = ttk.Entry(add_window)
+        destination_zone_label = ttk.Label(add_window, text="Zona Destino:")
+        destination_zone_entry = ttk.Entry(add_window)
+        destination_zone_entry = ttk.Entry(add_window)
+        submit_button = ttk.Button(add_window, text="Submit", command=lambda: self.save_data(add_window, minute_entry.get(), player_with_ball_button['text'], player_defender_button['text'], action_entry.get(), result_entry.get(), player_destination_button['text'], player_defender_destination_button['text'], action_zone_entry.get(), destination_zone_entry.get()))
+        submit_button.pack(padx=10, pady=10)
 
-        # Configurar la expansión de la vista de los datos
-        self.ventana.columnconfigure(0, weight=1)
-        self.ventana.rowconfigure(1, weight=1)
-        self.vista_datos.columnconfigure(0, weight=1)
-        self.vista_datos.rowconfigure(0, weight=1)
+        minute_label.pack(padx=10, pady=10)
+        minute_entry.pack(padx=10, pady=10)
+        player_with_ball_button.pack(padx=10, pady=10)
+        player_defender_button.pack(padx=10, pady=10)
+        action_label.pack(padx=10, pady=10)
+        action_entry.pack(padx=10, pady=10)
+        result_label.pack(padx=10, pady=10)
+        result_entry.pack(padx=10, pady=10)
+        player_destination_button.pack(padx=10, pady=10)
+        player_defender_destination_button.pack(padx=10, pady=10)
+        action_zone_label.pack(padx=10, pady=10)
+        action_zone_entry.pack(padx=10, pady=10)
+        destination_zone_label.pack(padx=10, pady=10)
+        destination_zone_entry.pack(padx=10, pady=10)
+        submit_button.pack(padx=10, pady=10)
 
-        # Ejecutar el loop principal
-        self.ventana.mainloop()
+    def open_player_window(self, parent):
+        player_window = tk.Toplevel(parent)
+        for i in range(22):
+            if i < 11:
+                button = ttk.Button(player_window, text="Button {}".format(i+1))
+                button.grid(row=i, column=0, padx=5, pady=5)
+                entry = ttk.Entry(player_window)
+                entry.grid(row=i, column=1, padx=5, pady=5)
+            else:
+                button = ttk.Button(player_window, text="Button {}".format(i+1))
+                button.grid(row=i-11, column=2, padx=5, pady=5)
+                entry = ttk.Entry(player_window)
+                entry.grid(row=i-11, column=3, padx=5, pady=5)
 
-    def actualizar_vista_datos(self):
-        # Eliminar todos los widgets hijos de la vista de los datos
-        for widget in self.vista_datos.winfo_children():
-            widget.destroy()
+    def save_data(self, parent, minute, player_with_ball, player_defender, action, result, player_destination, player_defender_destination, action_zone, destination_zone):
+        self.tree.insert("", "end", text="1", values=(minute, player_with_ball, player_defender, action, result, player_destination, player_defender_destination, action_zone, destination_zone))
+        parent.destroy()
 
-        # Crear los widgets de la vista de los datos
-        for row, registro in enumerate(self.data):
-            for column, valor in enumerate(registro):
-                etiqueta = tk.Label(self.vista_datos, text=valor)
-                etiqueta.grid(row=row, column=column, padx=5, pady=5)
+    def export_data(self):
+        with open("data.csv", "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["ID", "Minuto", "Jugador con Balón", "Jugador Marca", "Acción", "Resultado", "Jugador Destino", "Jugador Marca Destino", "Zona Acción", "Zona Destino"])
+            for item in self.tree.get_children():
+                values = self.tree.item(item)["values"]
+                writer.writerow([item, values[0], values[1], values[2], values[3], values[4], values[5], values[6], values[7], values[8]])
 
-    def ingresar(self):
-        # Crear la ventana para ingresar un registro nuevo
-        ventana_nuevo_registro = tk.Toplevel(self.ventana)
-
-        # Crear los widgets de la ventana de ingreso
-        tk.Label(ventana_nuevo_registro, text="Campo 1:").grid(row=0, column=0, padx=5, pady=5)
-        input1 = tk.Entry(ventana_nuevo_registro)
-        input1.grid(row=0, column=1, padx=5, pady=5)
-
-        tk.Label(ventana_nuevo_registro, text="Campo 2:").grid(row=1, column=0, padx=5, pady=5)
-        input2 = tk.Entry(ventana_nuevo_registro)
-        input2.grid(row=1, column=1, padx=5, pady=5)
-
-        tk.Label(ventana_nuevo_registro, text="Campo 3:").grid(row=2, column=0, padx=5, pady=5)
-        input3 = tk.Entry(ventana_nuevo_registro)
-        input3.grid(row=2, column=1, padx=5, pady=5)
-
-        tk.Button(ventana_nuevo_registro, text="Guardar", command=lambda: self.guardar_registro(input1.get(), input2.get(), input3.get(), opcion1.get(), input4.get(), opcion2.get(), input5.get(), opcion3.get(), input6.get(), opcion4.get())).grid(row=9, column=0, columnspan=2, padx=5, pady=5)
-
-    def guardar_registro(self, campo1, campo2, campo3, opcion1, campo4, opcion2, campo5, opcion3, campo6, opcion4):
-        # Agregar el nuevo registro a la lista de datos
-        registro = [campo1, campo2, campo3, opcion1, campo4, opcion2, campo5, opcion3, campo6, opcion4]
-        self.data.append(registro)
-
-        # Actualizar la vista de los datos
-        self.actualizar_vista_datos()
-
-        # Cerrar la ventana de ingreso de datos
-        self.ventana.winfo_children()[0].destroy()
-
-    def exportar_csv(self):
-        # Obtener el nombre de archivo del usuario
-        nombre_archivo = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV", "*.csv")])
-
-        if nombre_archivo:
-            try:
-                # Escribir los datos en el archivo CSV
-                with open(nombre_archivo, mode="w", newline="") as archivo:
-                    writer = csv.writer(archivo)
-                    writer.writerows(self.data)
-
-                messagebox.showinfo("Éxito", "Los datos han sido exportados a CSV.")
-            except:
-                messagebox.showerror("Error", "Ha ocurrido un error al exportar los datos a CSV.")
-
-def importar_csv(self):
-    # Obtener el nombre de archivo del usuario
-    nombre_archivo = filedialog.askopenfilename(filetypes=[("CSV", "*.csv")])
-
-    if nombre_archivo:
-        try:
-            # Leer los datos del archivo CSV
-            with open(nombre_archivo, mode="r") as archivo:
-                reader = csv.reader(archivo)
-                self.data = list(reader)
-
-            # Actualizar la vista de los datos
-            self.actualizar_vista_datos()
-
-            messagebox.showinfo("Éxito", "Los datos han sido importados desde CSV.")
-        except:
-            messagebox.showerror("Error", "Ha ocurrido un error al importar los datos desde CSV.")
-
-
-                messagebox.showinfo("Éxito", "Los datos han sido importados desde CSV.")
-            except:
-                messagebox.showerror("Error", "Ha ocurrido un error al importar los datos desde CSV.")
-
-app = App()
+    def import_data(self):
+        with open("data.csv") as file:
+            reader = csv.reader(file)
+            next(reader) # skip header
+            for row in reader:
+                self.tree.insert("", "end", text=row[0], values=(row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+root = tk.Tk()
+app = SportsApp(root)
+root.mainloop()                
