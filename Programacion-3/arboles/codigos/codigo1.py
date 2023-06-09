@@ -22,5 +22,6 @@ raiz.izquierda.izquierda = Nodo(2)
 raiz.izquierda.derecha = Nodo(4)
 raiz.derecha.izquierda = Nodo(7)
 raiz.derecha.derecha = Nodo(9)
+raiz.izquierda.izquierda.izquierda= Nodo(2)
 
 print(contar_nodos_con_dos_hijos(raiz))  # Output: 3
