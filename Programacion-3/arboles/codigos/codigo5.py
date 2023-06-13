@@ -1,3 +1,7 @@
+###Devuelve la cantidad de nodos que son raíz de un subárbol que tiene nodos con un solo hijo:
+
+
+
 class Nodo:
     def __init__(self, valor):
         self.valor = valor
