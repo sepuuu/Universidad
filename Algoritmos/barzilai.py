@@ -28,7 +28,7 @@ def gradiente_descendente_barzilai_borwein(funcion, valores_iniciales, toleranci
     return valores, iteraciones, valor_funcion
 
 # Prueba de la función
-funcion = "(x-3)**2 + (y-2)**2"
+funcion = "(x-1)**2+(x-y)**4"
 valores_iniciales = [0.0, 0.0]
 resultado, iteraciones, valor_funcion = gradiente_descendente_barzilai_borwein(funcion, valores_iniciales)
 
